@@ -2,7 +2,7 @@ CREATE DATABASE libraryApp;
 
 CREATE TABLE books(
   book_id SERIAL PRIMARY KEY,
-  title VARCHAR(50),
-  author VARCHAR(50),
-  description VARCHAR(255)
+  title VARCHAR(500),
+  author VARCHAR(500),
+  description VARCHAR(1000)
 );
