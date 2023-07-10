@@ -1,4 +1,5 @@
-const { Client } = require("pg");
+import pg from "pg";
+const { Client } = pg;
 const client = new Client({
   database: "postgres",
   user: "postgres",
@@ -7,4 +8,4 @@ const client = new Client({
   host: "localhost",
 });
 
-module.exports = client;
+export default client;
