@@ -5,8 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Book Library</title>
     <link rel="Stylesheet" href="./main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Belanosima:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div>Hello World!!</div>
+  <body id="body__background">
+    <div id="header">
+      <button class="btn__secondary">Add Book</button>
+      <div id="header__title">Your Online Library</div>
+    </div>
+    <div class="box">
+      <div class="title">Your Books</div>
+      <div id="books-list-items"></div>
+    </div>
+    <div class="box">
+      <div class="title">Add A Book</div>
+      <form class="form">
+        <div>
+          <input type="text" class="textInput" placeholder="Title" required />
+        </div>
+        <div>
+          <input type="text" class="textInput" placeholder="Author" required />
+        </div>
+        <div>
+          <textarea
+            class="textArea"
+            placeholder="Description"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn__primary">Submit</button>
+      </form>
+    </div>
+    <div class="box">
+      <div class="title">Update Book</div>
+      <form class="form">
+        <input
+          type="text"
+          id="update-title"
+          class="textInput"
+          placeholder="Book Title"
+          required
+        />
+        <input
+          type="text"
+          id="update-author"
+          class="textInput"
+          placeholder="Author"
+          required
+        />
+        <textarea
+          id="update-description"
+          class="textArea"
+          placeholder="Description"
+          required
+        ></textarea>
+        <button type="submit" class="btn__primary">Submit</button>
+      </form>
+    </div>
+    <script src="./getBook.js"></script>
+    <script src="./addBook.js"></script>
   </body>
 </html>
