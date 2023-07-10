@@ -1,0 +1,148 @@
+#body__background {
+  background-color: #faf7f0;
+  padding: 0 50px;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+#header__title {
+  font-family: "Bebas Neue";
+  color: #000000;
+  font-size: 3.75rem;
+  letter-spacing: 4px;
+}
+
+.btn__secondary {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  gap: 1rem;
+  left: 4rem;
+  background-color: #faf7f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  border: none;
+  padding: 12px 32px;
+  font-family: "Bebas Neue";
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.btn__secondary:hover {
+  background-color: #bcb3e0;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: #e3e0f2;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #d1cceb;
+  border-radius: 30px;
+  padding: 1rem 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: "Bebas Neue";
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+  padding-top: 1rem;
+}
+
+.getBooks {
+  font-family: "Belanosima";
+  background-color: #e3e0f2;
+  border-radius: 30px;
+  border: none;
+  padding: 2rem 3rem;
+  margin: 2rem;
+}
+
+.book-author {
+  font-style: italic;
+}
+
+/* 
+#add-book-form-box.hidden {
+  display: none;
+} */
+
+.title {
+  font-family: "Bebas Neue";
+  letter-spacing: 2px;
+  font-size: 2.5rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Bebas Neue";
+  letter-spacing: 2px;
+  padding: 1rem 0;
+}
+
+.textInput {
+  font-family: "Belanosima";
+  border-radius: 12px;
+  border-width: 1px;
+  width: 20rem;
+  padding: 8px 16px;
+  margin: 0.5rem 0;
+}
+
+.textInput:focus {
+  border: 2px;
+  outline-color: #000000;
+}
+
+.textArea {
+  font-family: "Belanosima";
+  border-radius: 12px;
+  border-width: 1px;
+  width: 20rem;
+  padding: 8px 16px;
+  margin: 0.5rem 0;
+}
+
+.textArea:focus {
+  border: 2px;
+  outline-color: #000000;
+}
+
+.btn__primary {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  background-color: #524270;
+  color: #faf7f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  border: none;
+  padding: 12px 32px;
+  font-family: "Bebas Neue";
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.btn__primary:hover {
+  background-color: #8f80cc99;
+  transition: 0.5s;
+}
