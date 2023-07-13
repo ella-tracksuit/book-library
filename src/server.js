@@ -10,7 +10,7 @@ import db from "./db.js";
 const server = http.createServer();
 await db.connect();
 
-// TODO mchange to switch statement
+// TODO change to switch statement
 server.on("request", async (req, res) => {
   let filePath = path.resolve(__dirname + "/../public" + req.url);
 

@@ -19,27 +19,6 @@
   letter-spacing: 4px;
 }
 
-.btn__secondary {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  gap: 1rem;
-  left: 4rem;
-  background-color: #faf7f0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: 50px;
-  border: none;
-  padding: 12px 32px;
-  font-family: "Bebas Neue";
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
-.btn__secondary:hover {
-  background-color: #bcb3e0;
-  transition: 0.5s;
-}
-
 .button:hover {
   background-color: #e3e0f2;
 }
@@ -146,3 +125,35 @@
   background-color: #8f80cc99;
   transition: 0.5s;
 }
+
+.btn__secondary {
+  background-color: #faf7f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  border: none;
+  padding: 12px 32px;
+  font-family: "Bebas Neue";
+  letter-spacing: 2px;
+  cursor: pointer;
+  margin: 0rem 1rem;
+}
+
+.btn__secondary:hover {
+  background-color: #bcb3e0;
+  transition: 0.5s;
+}
+
+#btn__add-book {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  gap: 1rem;
+  left: 4rem;
+}
+
+/* .btn__update-book {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  gap: 1rem;
+} */

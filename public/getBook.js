@@ -20,9 +20,21 @@ function fetchAllBooks() {
         const descriptionElement = document.createElement("p");
         descriptionElement.textContent = book.description;
 
+        const updateButton = document.createElement("button");
+        updateButton.textContent = "Update";
+        updateButton.classList.add("btn__secondary");
+        updateButton.setAttribute("id", book.id);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.classList.add("btn__secondary", "deleteButton");
+        deleteButton.setAttribute("id", book.id);
+
         bookElement.appendChild(titleElement);
         bookElement.appendChild(authorElement);
         bookElement.appendChild(descriptionElement);
+        bookElement.appendChild(updateButton);
+        bookElement.appendChild(deleteButton);
 
         return bookElement;
       });
