@@ -1,25 +1,27 @@
-const updateBookForm = document.getElementById("update-book-form");
-const updatedTitle = document.getElementById("update-title");
-const updatedAuthor = document.getElementById("update-author");
-const updatedDescription = document.getElementById("update-description");
+document
+  .getElementById("update-book-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
 
-updateBookForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+    const updatedBook = {
+      id: data.get("id"),
+      title: data.get("title"),
+      author: data.get("author"),
+      description: data.get("description"),
+    };
 
-  const updatedBook = {
-    title: updatedTitle.value,
-    author: updatedAuthor.value,
-    description: updatedDescription.value,
-  };
+    updateBook(updatedBook);
 
-  updateBook(updatedBook, bookId);
-});
+    const updateForm = document.getElementById("update-book-form");
+    updateForm.reset();
+  });
 
-function updateBook(updatedBook, bookId) {
-  fetch(`/books/${bookId}`, {
+function updateBook(updatedBook) {
+  fetch(`/books/${updatedBook.id}`, {
     method: "PATCH",
     headers: {
-      "updated-Book": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(updatedBook),
   })
