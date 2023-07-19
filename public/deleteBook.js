@@ -1,12 +1,6 @@
-const deleteButtons = document.querySelectorAll(".deleteButton");
-
-deleteButtons.forEach((button) => {
-  button.addEventListener("click", handleDeleteBook);
-});
-
 function handleDeleteBook(event) {
   const button = event.target;
-  const bookId = button.data.id;
+  const bookId = button.getAttribute("id");
 
   deleteBook(bookId);
 }

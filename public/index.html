@@ -27,7 +27,7 @@
     </div>
     <div class="box">
       <div class="title">Add A Book</div>
-      <form class="form">
+      <form class="form" id="add-book-form">
         <div>
           <input
             type="text"
@@ -61,9 +61,11 @@
     <div class="box">
       <div class="title">Update Book</div>
       <form class="form" id="update-book-form">
+        <input type="hidden" id="update-id" name="id" />
         <input
           type="text"
           id="update-title"
+          name="title"
           class="textInput"
           placeholder="Book Title"
           required
@@ -71,20 +73,31 @@
         <input
           type="text"
           id="update-author"
+          name="author"
           class="textInput"
           placeholder="Author"
           required
         />
         <textarea
+          rows="4"
           id="update-description"
           class="textArea"
+          name="description"
           placeholder="Description"
           required
         ></textarea>
-        <button type="submit" class="btn__primary">Submit</button>
+        <button
+          type="submit"
+          id="update-submit-button"
+          class="btn__primary update-button"
+        >
+          Submit
+        </button>
       </form>
     </div>
     <script src="./getBook.js"></script>
+    <script src="./updateBook.js"></script>
     <script src="./addBook.js"></script>
+    <script src="./deleteBook.js"></script>
   </body>
 </html>
