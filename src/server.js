@@ -50,32 +50,31 @@ server.on("request", async (req, res) => {
           res.end(JSON.stringify({ error: "Error adding book" }));
         });
     });
-  } else if (req.url.match(/^\/books\/\d+$/) && req.method === "PATCH") {
+  } else if (/^\/books\/\d+$/.test(req.url) && req.method === "PATCH") {
     // Handle PATCH request for "/books/:id"
     const bookId = req.url.split("/")[2];
     let body = "";
     req.on("data", (updatedBookData) => {
       body += updatedBookData;
     });
-    req
-      .on("end", () => {
-        const bookData = JSON.parse(body);
-        // Perform db operation to update the book
-        db.query(
-          "UPDATE books SET title = $1, author = $3, description = $2 WHERE book_id = $4",
-          [bookData.title, bookData.description, bookId]
-        );
-      })
-      .then(() => {
-        res.statusCode = 200;
-        res.end(JSON.stringify({ message: "Book updated successfully" }));
-      })
-      .catch((error) => {
-        console.error("Error updating book:", error);
-        res.statusCode = 500;
-        res.end(JSON.stringify({ error: "Error updating book" }));
-      });
-  } else if (req.url.match(/^\/books\/\d+$/) && req.method === "PATCH") {
+    req.on("end", () => {
+      const bookData = JSON.parse(body);
+      // Perform db operation to update the book
+      db.query(
+        "UPDATE books SET title = $1, author = $2, description = $3 WHERE book_id = $4",
+        [bookData.title, bookData.author, bookData.description, bookId]
+      )
+        .then(() => {
+          res.statusCode = 200;
+          res.end(JSON.stringify({ message: "Book updated successfully" }));
+        })
+        .catch((error) => {
+          console.error("Error updating book:", error);
+          res.statusCode = 500;
+          res.end(JSON.stringify({ error: "Error updating book" }));
+        });
+    });
+  } else if (/^\/books\/\d+$/.test(req.url) && req.method === "DELETE") {
     // Handle DELETE request for "/books/:id"
     const bookId = req.url.split("/")[2];
     db.query("DELETE FROM books WHERE book_id = $1", [bookId])
