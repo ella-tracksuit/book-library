@@ -1,4 +1,5 @@
-const { Client } = require("pg");
+import pkg from "pg";
+const { Client } = pkg;
 
 const client = new Client({
   database: "postgres",
@@ -47,12 +48,18 @@ async function seedDatabase() {
     await client.connect();
 
     await client.query(
-      `CREATE TABLE if not exists books(book_id SERIAL PRIMARY KEY, title VARCHAR(500), author VARCHAR(500), description VARCHAR(1000));`
+      `CREATE TABLE IF NOT EXISTS books(
+        book_id SERIAL PRIMARY KEY,
+        title VARCHAR(500),
+        author VARCHAR(500),
+        description VARCHAR(1000),
+        CONSTRAINT title_author UNIQUE(title, author)
+      );`
     );
 
     for (const book of booksData) {
       await client.query(
-        "INSERT INTO books (title, author, description) VALUES ($1, $2, $3)",
+        "INSERT INTO books (title, author, description) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING;",
         [book.title, book.author, book.description]
       );
     }

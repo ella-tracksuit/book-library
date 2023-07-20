@@ -16,7 +16,7 @@ server.on("request", async (req, res) => {
 
   if (req.url === "/books" && req.method === "GET") {
     // Handle GET request for "/books"
-    db.query("SELECT * FROM books")
+    db.query("SELECT * FROM books ORDER BY book_id")
       .then((result) => {
         res.setHeader("All-Books", "application/json");
         res.statusCode = 200;
