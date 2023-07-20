@@ -18,14 +18,20 @@
   </head>
   <body id="body__background">
     <div id="header">
-      <button class="btn__secondary" id="btn__add-book">Add Book</button>
-      <div id="header__title">Your Online Library</div>
+      <button
+        class="btn__secondary headerButton"
+        id="btn__add-book"
+        onclick="showSection('addBook')"
+      >
+        Add Book
+      </button>
+      <h1 id="header__title">Your Online Library</h1>
     </div>
-    <div class="box">
+    <div class="box" id="book-list-box">
       <div class="title">Your Books</div>
       <div id="books-list-items"></div>
     </div>
-    <div class="box">
+    <div class="box" id="add-book-form-box">
       <div class="title">Add A Book</div>
       <form class="form" id="add-book-form">
         <div>
@@ -33,6 +39,7 @@
             type="text"
             class="textInput"
             id="new-title"
+            name="title"
             placeholder="Title"
             required
           />
@@ -42,6 +49,7 @@
             type="text"
             class="textInput"
             id="new-author"
+            name="author"
             placeholder="Author"
             required
           />
@@ -50,15 +58,26 @@
           <textarea
             class="textArea"
             id="new-description"
+            name="description"
             placeholder="Description"
             rows="4"
             required
           ></textarea>
         </div>
-        <button type="submit" class="btn__primary">Submit</button>
+        <div class="button-wrapper">
+          <button
+            type="button"
+            id="update-cancel-button"
+            class="btn__secondary update-button"
+            onclick="showSection('bookList')"
+          >
+            Cancel
+          </button>
+          <button type="submit" class="btn__primary">Submit</button>
+        </div>
       </form>
     </div>
-    <div class="box">
+    <div class="box" id="update-book-form-box">
       <div class="title">Update Book</div>
       <form class="form" id="update-book-form">
         <input type="hidden" id="update-id" name="id" />
@@ -86,18 +105,29 @@
           placeholder="Description"
           required
         ></textarea>
-        <button
-          type="submit"
-          id="update-submit-button"
-          class="btn__primary update-button"
-        >
-          Submit
-        </button>
+        <div class="button-wrapper">
+          <button
+            type="button"
+            id="update-cancel-button"
+            class="btn__secondary update-button"
+            onclick="showSection('bookList')"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            id="update-submit-button"
+            class="btn__primary update-button"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
     <script src="./getBook.js"></script>
     <script src="./updateBook.js"></script>
     <script src="./addBook.js"></script>
     <script src="./deleteBook.js"></script>
+    <script src="./toggleSections.js"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 const bookListContainer = document.getElementById("books-list-items");
 
 function fetchAllBooks() {
-  fetch("/books")
+  return fetch("/books")
     .then((response) => response.json())
     .then((data) => {
       const books = data;
@@ -24,6 +24,7 @@ function fetchAllBooks() {
         updateButton.textContent = "Update";
         updateButton.classList.add("btn__secondary", "update-button");
         updateButton.setAttribute("id", book.book_id);
+        updateButton.setAttribute("onclick", "showSection('updateBook')");
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";

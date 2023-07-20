@@ -1,24 +1,23 @@
-document
-  .getElementById("update-book-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
+const updateBookForm = document.getElementById("update-book-form");
 
-    const updatedBook = {
-      id: data.get("id"),
-      title: data.get("title"),
-      author: data.get("author"),
-      description: data.get("description"),
-    };
+updateBookForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const data = new FormData(event.target);
 
-    updateBook(updatedBook);
+  const updatedBook = {
+    id: data.get("id"),
+    title: data.get("title"),
+    author: data.get("author"),
+    description: data.get("description"),
+  };
 
-    const updateForm = document.getElementById("update-book-form");
-    updateForm.reset();
+  updateBook(updatedBook).then(() => {
+    updateBookForm.reset();
   });
+});
 
 function updateBook(updatedBook) {
-  fetch(`/books/${updatedBook.id}`, {
+  return fetch(`/books/${updatedBook.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -26,9 +25,10 @@ function updateBook(updatedBook) {
     body: JSON.stringify(updatedBook),
   })
     .then((response) => response.json())
-    .then((data) => {
-      fetchAllBooks();
-      console.log("Book updated successfully:", data.message);
+    .then(() => fetchAllBooks())
+    .then(() => {
+      addBookForm.reset();
+      showSection("bookList");
     })
     .catch((error) => {
       console.error("Error updating book:", error);

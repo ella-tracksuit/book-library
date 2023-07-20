@@ -11,7 +11,6 @@ function deleteBook(bookId) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Book deleted successfully:", data.message);
       fetchAllBooks();
     })
     .catch((error) => {
